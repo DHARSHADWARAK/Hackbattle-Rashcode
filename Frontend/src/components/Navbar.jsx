@@ -45,7 +45,8 @@ const Navbar = () => {
           <NavItem to="/Transactions" label="Transactions" />
         </div>
         <div className="hidden md:flex flex-row gap-4 items-center text-lg">
-          
+          <div>Saved</div>
+          <div>Lists</div>
           <button className="relative overflow-hidden flex flex-row justify-center items-center gap-1 text-white bg-slate-700 p-1 rounded-lg group">
             <span className="relative z-10 flex items-center">
               <div>Generate</div>
@@ -71,7 +72,7 @@ const Navbar = () => {
             </div>
             {/* Dropdown menu */}
             {isUserDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-10">
+              <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2">
                 <Link to="/profile" className="block px-4 py-2 hover:bg-gray-100">Profile</Link>
                 <Link to="/signup" className="px-4 py-2 hover:bg-gray-100 flex items-center gap-2">
                   Logout
@@ -97,7 +98,8 @@ const Navbar = () => {
           <NavItem to="/" label="Dashboard" onClick={toggleMenu} />
           <NavItem to="/Transactions" label="Transactions" onClick={toggleMenu} />
           <div className="flex flex-col gap-2 mt-4">
-           
+            <div>Saved</div>
+            <div>Lists</div>
             <button className="relative overflow-hidden flex flex-row justify-center items-center gap-1 text-white bg-slate-700 p-2 rounded-lg group">
               <span className="relative z-10 flex items-center">
                 <div>Generate</div>
