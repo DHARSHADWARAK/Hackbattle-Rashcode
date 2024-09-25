@@ -63,13 +63,13 @@ const CardList = () => {
 
   return (
     <div className='md:w-1/2'>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-[1rem]">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-[1rem]">
         {data.map((service, index) => (
           <div key={index} className='flip-box w-full'>
             <div className="flip-box-inner">
               <div className='flip-box-front flex bg-gray-100 p-2 rounded-lg shadow-lg text-gray-800 items-center justify-center'>
                 <div className='flex flex-col justify-center items-center'>
-                  <div className='flex text-xl font-semibold justify-center items-center'>
+                  <div className='flex text-xl font-semibold justify-center items-center p-3'>
                     <img src={service.symbol} alt="" className='w-1/3 md:w-full'/>
                   </div>
                   <img src="src/assets/—Pngtree—vector star icon_4231909.png" className='w-[40%]' alt="" />
