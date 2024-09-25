@@ -5,6 +5,7 @@ import Signup from './Pages/Signup'
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Transactions from './Pages/Transactions';
 // import User from './Pages/User';
+
 import Profile from './Pages/Profile';
 function App() {
   return (
