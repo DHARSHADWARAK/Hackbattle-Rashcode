@@ -43,10 +43,12 @@ const Navbar = () => {
         <div className="hidden md:flex flex-row gap-4">
           <NavItem to="/" label="Dashboard" />
           <NavItem to="/Transactions" label="Transactions" />
+          <NavItem to="/investment" label="Investement" />
+          <NavItem to="/taxes" label="Taxes" />
+          
         </div>
         <div className="hidden md:flex flex-row gap-4 items-center text-lg">
-          <div>Saved</div>
-          <div>Lists</div>
+          
           <button className="relative overflow-hidden flex flex-row justify-center items-center gap-1 text-white bg-slate-700 p-1 rounded-lg group">
             <span className="relative z-10 flex items-center">
               <div>Generate</div>
@@ -97,9 +99,10 @@ const Navbar = () => {
         <div className="md:hidden flex flex-col items-start p-4">
           <NavItem to="/" label="Dashboard" onClick={toggleMenu} />
           <NavItem to="/Transactions" label="Transactions" onClick={toggleMenu} />
+          <NavItem to="/investment" label="Investement" onClick={toggleMenu}/>
+          <NavItem to="/taxes" label="Taxes" onClick={toggleMenu}/>
           <div className="flex flex-col gap-2 mt-4">
-            <div>Saved</div>
-            <div>Lists</div>
+           
             <button className="relative overflow-hidden flex flex-row justify-center items-center gap-1 text-white bg-slate-700 p-2 rounded-lg group">
               <span className="relative z-10 flex items-center">
                 <div>Generate</div>

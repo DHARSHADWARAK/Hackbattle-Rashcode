@@ -6,6 +6,7 @@ const Filters = () => {
   const [customers, setCustomers] = useState([]);
   const [selectedCustomer, setSelectedCustomer] = useState(null);
   const [isFileUploaded, setIsFileUploaded] = useState(false);
+  const [selectedTransactions, setSelectedTransactions] = useState([]);
 
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
@@ -42,8 +43,29 @@ const Filters = () => {
     reader.readAsBinaryString(file);
   };
 
+  const calculateTotals = (customer) => {
+    const totalWithdrawal = customer.transactions.reduce((acc, t) => acc + (t.withdrawalAmt || 0), 0);
+    const totalDeposit = customer.transactions.reduce((acc, t) => acc + (t.depositAmt || 0), 0);
+    return { totalWithdrawal, totalDeposit };
+  };
+
+  const handleCheckboxChange = (transaction) => {
+    if (selectedTransactions.includes(transaction)) {
+      setSelectedTransactions(selectedTransactions.filter(t => t !== transaction));
+    } else {
+      setSelectedTransactions([...selectedTransactions, transaction]);
+    }
+  };
+
+  const handleSubmit = () => {
+    // Send selectedTransactions to the backend
+    const salaryTransactions = selectedTransactions;
+    console.log("Submitting salary transactions:", salaryTransactions);
+    // You can now send 'salaryTransactions' to the backend using fetch or axios
+  };
+
   return (
-    <div className="container mx-auto px-4">
+    <div className="container mx-auto ">
       <div className="flex justify-between items-start py-4">
         {/* Left Filter Panel */}
         <div className="w-1/4 bg-white p-4 shadow rounded">
@@ -56,7 +78,10 @@ const Filters = () => {
           />
           <select
             className="w-full p-2 border border-gray-300 rounded"
-            onChange={(e) => setSelectedCustomer(customers.find(c => c.name === e.target.value))}
+            onChange={(e) => {
+              setSelectedCustomer(customers.find(c => c.name === e.target.value));
+              setSelectedTransactions([]); // Clear selected transactions on customer change
+            }}
             value={selectedCustomer?.name || ""}
           >
             <option disabled>Select Customer</option>
@@ -75,16 +100,32 @@ const Filters = () => {
               <table className="min-w-full mt-4 border">
                 <thead>
                   <tr className="bg-gray-100">
+                    <th className="px-6 py-3 text-left">Select</th>
                     <th className="px-6 py-3 text-left">S.No</th>
                     <th className="px-6 py-3 text-left">Date</th>
-                    <th className="px-6 py-3 text-left">Withdrawal Amount</th>
-                    <th className="px-6 py-3 text-left">Deposit Amount</th>
+                    <th className="px-6 py-3 text-left">Debit Amount</th>
+                    <th className="px-6 py-3 text-left">Credit Amount</th>
                     <th className="px-6 py-3 text-left">Closing Balance</th>
                   </tr>
                 </thead>
                 <tbody>
                   {selectedCustomer.transactions.map((transaction, index) => (
                     <tr key={index}>
+                      <td className="border px-6 py-2">
+                        <label className="inline-flex items-center">
+                          <input
+                            type="checkbox"
+                            checked={selectedTransactions.includes(transaction)}
+                            onChange={() => handleCheckboxChange(transaction)}
+                            className="hidden"
+                          />
+                          <span className="custom-checkbox w-5 h-5 border border-gray-300 rounded flex items-center justify-center cursor-pointer">
+                            {selectedTransactions.includes(transaction) && (
+                              <span className="block w-3 h-3 rounded-sm bg-black"></span>
+                            )}
+                          </span>
+                        </label>
+                      </td>
                       <td className="border px-6 py-2">{transaction.sNo}</td>
                       <td className="border px-6 py-2">{transaction.date}</td>
                       <td className="border px-6 py-2">{transaction.withdrawalAmt}</td>
@@ -94,6 +135,25 @@ const Filters = () => {
                   ))}
                 </tbody>
               </table>
+              {/* Totals Section */}
+              <div className="mt-4">
+                {(() => {
+                  const { totalWithdrawal, totalDeposit } = calculateTotals(selectedCustomer);
+                  return (
+                    <div className="font-bold text-lg">
+                      <p>Total Debit Amount: {totalWithdrawal}</p>
+                      <p>Total Credit Amount: {totalDeposit}</p>
+                    </div>
+                  );
+                })()}
+              </div>
+              {/* Submit Button */}
+              <button
+                className="mt-4 bg-black text-white px-4 py-2 rounded"
+                onClick={handleSubmit}
+              >
+                Submit Selected Transactions as Salary
+              </button>
             </div>
           ) : (
             <p>Please select a customer from the list.</p>

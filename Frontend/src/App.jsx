@@ -3,6 +3,8 @@ import Dashboard from './Pages/Dashboard';
 import Signup from './Pages/Signup';
 import Transactions from './Pages/Transactions';
 import Profile from './Pages/Profile';
+import Investment from './Pages/Investment';
+import Taxes from './Pages/Taxes';
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/transactions" element={<Transactions />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/investment" element={<Investment/>} />
+        <Route path="/taxes" element={<Taxes />} />
       </Routes>
     </Router>
   );
