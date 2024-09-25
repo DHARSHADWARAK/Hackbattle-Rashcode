@@ -156,6 +156,7 @@ const Filters = () => {
       {/* Display Selected Customer and Filters - Full width on small screens, 3/4 on large screens */}
       <div className="pt-4 md:pt-0 pl-4 w-full lg:w-3/4">
         <div className="text-3xl font-semibold mb-4">Customer Details</div>
+        
 
         {selectedCustomer ? (
           <div>

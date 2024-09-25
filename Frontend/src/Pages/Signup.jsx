@@ -179,7 +179,7 @@ const AuthPage = () => {
         </div>
 
         {/* The Overlay Section */}
-        <div className="absolute inset-0 w-full h-full flex z-10">
+        <div className="absolute hidden inset-0 w-full h-full md:flex z-10">
           <div
             className={`absolute w-[400px] h-full bg-gradient-to-r from-white to-black   flex flex-col justify-center items-center transition-all duration-700 ease-in-out ${
               isSignUp ? "left-[400px] text-black " : "left-[0px] text-white"
