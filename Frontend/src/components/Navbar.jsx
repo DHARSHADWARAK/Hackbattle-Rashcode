@@ -45,6 +45,7 @@ const Navbar = () => {
           <NavItem to="/Transactions" label="Transactions" />
           <NavItem to="/investment" label="Investement" />
           <NavItem to="/taxes" label="Taxes" />
+          <NavItem to="/tax_calc" label="Tax Calculator" />
           
         </div>
         <div className="hidden md:flex flex-row gap-4 items-center text-lg">
