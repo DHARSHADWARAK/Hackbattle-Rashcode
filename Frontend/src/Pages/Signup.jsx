@@ -44,7 +44,8 @@ const AuthPage = () => {
     if (Object.keys(errors).length === 0) {
       // Mock signup logic here (e.g., API call)
       // After successful sign up, switch to sign in
-      setIsSignUp(false);
+      navigate("/");
+
     }
   };
 

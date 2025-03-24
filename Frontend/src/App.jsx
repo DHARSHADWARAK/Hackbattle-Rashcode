@@ -6,6 +6,8 @@ import Profile from './Pages/Profile';
 import Investment from './Pages/Investment';
 import Taxes from './Pages/Taxes';
 import TaxCalculator from './Pages/Tax_calc';
+import Post_sign_up from './Pages/post_sign_up';
+import StockChartPage from './Pages/Graph';
 function App() {
   
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path="/investment" element={<Investment/>} />
         <Route path="/taxes" element={<Taxes />} />
         <Route path="/tax_calc" element={<TaxCalculator/>} />
+        <Route path="/post_sign_up" element={<Post_sign_up/>} />
+        <Route path="/stock-chart" element={<StockChartPage />} />
       </Routes>
     </Router>
   );
