@@ -8,6 +8,7 @@ import Taxes from './Pages/Taxes';
 import TaxCalculator from './Pages/Tax_calc';
 import Post_sign_up from './Pages/post_sign_up';
 import StockChartPage from './Pages/Graph';
+import AuthPage from './Pages/Authpage';
 function App() {
   
   return (
@@ -22,6 +23,8 @@ function App() {
         <Route path="/tax_calc" element={<TaxCalculator/>} />
         <Route path="/post_sign_up" element={<Post_sign_up/>} />
         <Route path="/stock-chart" element={<StockChartPage />} />
+        <Route path="/auth" element={<AuthPage/>} />
+
       </Routes>
     </Router>
   );

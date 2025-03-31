@@ -44,20 +44,20 @@ const Navbar = () => {
           <NavItem to="/" label="Dashboard" />
           <NavItem to="/Transactions" label="Transactions" />
           <NavItem to="/investment" label="Investement" />
-          <NavItem to="/taxes" label="Taxes" />
+          {/* <NavItem to="/taxes" label="Taxes" /> */}
           <NavItem to="/tax_calc" label="Tax Calculator" />
-          <NavItem to="/post_sign_up" label="post sign up" />
+          <NavItem to="/post_sign_up" label="Stock Manager" />
           
         </div>
         <div className="hidden md:flex flex-row gap-4 items-center text-lg">
           
-          <button className="relative overflow-hidden flex flex-row justify-center items-center gap-1 text-white bg-slate-700 p-1 rounded-lg group">
+          {/* <button className="relative overflow-hidden flex flex-row justify-center items-center gap-1 text-white bg-slate-700 p-1 rounded-lg group">
             <span className="relative z-10 flex items-center">
               <div>Generate</div>
               <FontAwesomeIcon icon={faWandMagicSparkles} className="ml-2" />
             </span>
             <span className="absolute inset-0 bg-black origin-center transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></span>
-          </button>
+          </button> */}
         </div>
         <div className="flex flex-row gap-2 items-center justify-center ">
           <FontAwesomeIcon icon={faBell} className="hidden md:block text-black-500 hover:cursor-pointer" />
